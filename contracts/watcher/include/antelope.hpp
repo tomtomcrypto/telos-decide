@@ -10,13 +10,13 @@
 using namespace std;
 using namespace eosio;
 
-CONTRACT watcher : public contract {
+CONTRACT antelope : public contract {
 
 public:
 
-    watcher(name self, name code, datastream<const char*> ds);
+    antelope(name self, name code, datastream<const char*> ds);
 
-    ~watcher();
+    ~antelope();
 
     //======================== actions ========================
 
