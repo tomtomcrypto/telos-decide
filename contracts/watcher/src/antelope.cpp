@@ -1,12 +1,12 @@
-#include <watcher.hpp>
+#include <antelope.hpp>
 
-watcher::watcher(name self, name code, datastream<const char*> ds) : contract(self, code, ds) { }
+antelope::antelope(name self, name code, datastream<const char*> ds) : contract(self, code, ds) { }
 
-watcher::~watcher() { }
+antelope::~antelope() { }
 
 //======================== actions ========================
 
-ACTION watcher::watchballot(name ballot_name, symbol treasury_symbol, name committee_name, name seat_name) {
+ACTION antelope::watchballot(name ballot_name, symbol treasury_symbol, name committee_name, name seat_name) {
     
     //open open_ballots table, search for open ballot
     openballots_table openballots(get_self(), get_self().value);
@@ -25,7 +25,7 @@ ACTION watcher::watchballot(name ballot_name, symbol treasury_symbol, name commi
 
 }
 
-void watcher::catch_broadcast(name ballot_name, map<name, asset> final_results, uint32_t total_voters) {
+void antelope::catch_broadcast(name ballot_name, map<name, asset> final_results, uint32_t total_voters) {
     
     //get initial receiver contract
     name rec = get_first_receiver();
